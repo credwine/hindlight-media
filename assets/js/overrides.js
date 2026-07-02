@@ -166,16 +166,6 @@
       });
     }
 
-    // 3. Hero scroll cue (only on the homepage hero background section)
-    var heroBg = document.querySelector('.local-video-bg');
-    var heroSection = heroBg ? heroBg.closest('section') : null;
-    if (heroSection && !document.querySelector('.hl-scrollcue')) {
-      if (getComputedStyle(heroSection).position === 'static') heroSection.style.position = 'relative';
-      var cue = document.createElement('div');
-      cue.className = 'hl-scrollcue';
-      cue.setAttribute('aria-hidden', 'true');
-      heroSection.appendChild(cue);
-    }
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);

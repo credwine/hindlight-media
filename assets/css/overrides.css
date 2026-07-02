@@ -216,12 +216,6 @@ button.background-pause-button,.background-pause-button,.background-pause-button
 .hl-hero-cta .hl-btn-ghost{border:1.5px solid rgba(255,255,255,.7);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px)}
 .hl-hero-cta .hl-phone{margin-top:22px}
 
-/* animated scroll cue at the bottom of the hero */
-.hl-scrollcue{position:absolute;left:50%;bottom:26px;transform:translateX(-50%);z-index:6;
-  width:26px;height:42px;border:2px solid rgba(255,255,255,.55);border-radius:14px;display:flex;justify-content:center;pointer-events:none}
-.hl-scrollcue::before{content:'';width:4px;height:8px;border-radius:2px;background:#FFD54F;margin-top:7px;animation:hlScroll 1.7s ease-in-out infinite}
-@keyframes hlScroll{0%{opacity:0;transform:translateY(-4px)}40%{opacity:1}80%{opacity:0;transform:translateY(12px)}100%{opacity:0}}
-
 /* --- cinematic slow zoom on the hero background video --- */
 .local-video-bg video{animation:hlKenburns 34s ease-in-out infinite alternate;will-change:transform}
 @keyframes hlKenburns{0%{transform:scale(1)}100%{transform:scale(1.07)}}
@@ -250,8 +244,6 @@ html{scroll-behavior:smooth}
 
 @media(prefers-reduced-motion:reduce){
   .local-video-bg video{animation:none !important}
-  .hl-scrollcue::before{animation:none !important}
   .hl-reveal{opacity:1 !important;transform:none !important}
   html{scroll-behavior:auto}
 }
-@media(max-width:767px){.hl-scrollcue{display:none}}
