@@ -4,8 +4,9 @@
 /* ---- 6. readability: larger body text ---- */
 body .sqs-block-html p:not(.sqsrte-small){font-size:1.14rem !important;line-height:1.65 !important}
 body .sqs-block-html li{font-size:1.1rem !important;line-height:1.6 !important}
-.sqs-block-accordion .accordion-item__title{font-size:1.05rem !important}
-.sqs-block-accordion .accordion-item__description p{font-size:1.08rem !important}
+.sqs-block-accordion .accordion-item__title{font-size:1.55rem !important;line-height:1.3 !important}
+.sqs-block-accordion .accordion-item__description p{font-size:1.15rem !important;line-height:1.65 !important}
+.sqs-block-accordion .accordion-item__click-target{padding-top:1.1em !important;padding-bottom:1.1em !important}
 
 /* ---- 9. ambient ember motion on light sections ---- */
 @keyframes hlDrift{
