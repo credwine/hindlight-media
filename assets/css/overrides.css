@@ -43,11 +43,11 @@ body::after{content:'';position:fixed;inset:0;background-image:url("data:image/s
 .hl-btn-ghost{display:inline-block;padding:15px 32px;border-radius:4px;border:2px solid rgba(255,255,255,.85);color:#fff !important;font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-size:.9rem;text-decoration:none !important;transition:all .2s ease}
 .hl-btn-ghost:hover{background:rgba(255,255,255,.15);border-color:#FFD54F;color:#FFD54F !important}
 
-/* hero CTA overlay (index) */
-.hl-hero-cta{position:absolute;bottom:7%;left:50%;transform:translateX(-50%);z-index:6;text-align:center;width:min(680px,92vw)}
+/* hero CTA (index) - in flow below the headline so it never overlaps */
+.hl-hero-cta{position:relative;z-index:6;text-align:center;width:min(680px,92vw);margin:26px auto 44px}
 .hl-hero-cta .hl-phone{margin-top:18px;font-size:1rem;letter-spacing:.12em;color:#F5EFE7;text-shadow:0 1px 12px rgba(0,0,0,.8);text-transform:uppercase}
 .hl-hero-cta .hl-phone a{color:#FFD54F;font-weight:700;text-decoration:none}
-@media(max-width:640px){.hl-hero-cta{bottom:5%}}
+@media(max-width:640px){.hl-hero-cta .hl-btn-ghost{margin-left:0 !important;margin-top:10px}}
 
 /* reviews band (index) */
 .hl-reviews{background:#F1F1F1;padding:90px 5vw;position:relative;overflow:hidden}
