@@ -42,7 +42,9 @@ It is broken on the live site too and could not be recovered.
 | brand-video-sample.mp4 | Brand Videos | Vimeo 1205316525 |
 
 ## Not recovered (2)
-Vimeo temporarily blocked further downloads from this connection:
 - talking-head-reel-2 -> vimeo.com/1058453718 (Talking Head Reels page)
 - selfie-to-sales-example -> vimeo.com/1191590390 (Selfie to Sales page)
-These can be embedded directly by ID, or pulled later.
+UPDATE 2026-07-01: both Vimeo IDs now 404 on Vimeo's oEmbed API and their embeds
+render "Sorry - We're having a little trouble" on any domain. Embeds were removed
+from the site. If the client wants these clips back, they must re-export from
+their own Vimeo account or original project files.
