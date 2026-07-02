@@ -32,7 +32,7 @@ section[data-section-theme="bright"]::before{
   pointer-events:none;z-index:0;animation:hlDriftRev 27s ease-in-out infinite alternate}
 
 /* ---- 9b. film grain ---- */
-body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");opacity:.028;pointer-events:none;z-index:99999;mix-blend-mode:multiply}
+body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");opacity:.028;pointer-events:none;z-index:99999}
 
 /* ---- 11. scroll playhead ---- */
 #hl-playhead{position:fixed;top:0;left:0;height:3px;width:100%;transform:scaleX(0);transform-origin:0 0;background:linear-gradient(90deg,#FF3D00,#FF8F00,#FFD54F);z-index:100000;pointer-events:none}
@@ -188,3 +188,10 @@ section#selfie-to-sales .sts-description{color:#3d3a36}
   background:#000 !important;
   box-shadow:0 14px 38px rgba(60,15,0,.5) !important;
 }
+
+/* Squarespace background-video pause control (runtime-injected on any page
+   with a video background - hero, swoop). Decorative muted loops; hide the
+   chrome on all pages. */
+button.background-pause-button,.background-pause-button,.background-pause-button.visible,
+.sqs-video-background-native__control,.sqs-video-background .sqs-video-background-native__btn,
+.sqs-video-background-native__btn{display:none !important;visibility:hidden !important;opacity:0 !important;pointer-events:none !important}
