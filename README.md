@@ -1,46 +1,27 @@
 # HindLight Media - Website
 
-Multi-page redesign for HindLight Media, a northwest Georgia video and multimedia production team. Light "fire on paper" theme built from the brand wordmark (flame #FF3D00, amber #FF8F00, gold #FFD54F on warm white).
+**Current state (main): a faithful, self-hosted clone of the client's live hindlightmedia.com (Squarespace).** This is the agreed baseline; improvements iterate from here.
 
 **Live preview:** https://credwine.github.io/hindlight-media/
 
-## Stack
+A full light-theme multi-page redesign also exists on the `redesign-light` branch (orange/white design system, individual solution pages, SEO layer) - anything from it can be cherry-picked into the clone as improvements.
 
-Static HTML + one shared stylesheet + one shared script. No build step, no dependencies.
+## How the clone works
 
-```
-index.html               Home (football hero video)
-solutions.html           Impact Solutions overview
-talking-head-reels.html  Solution 01 (original site slug preserved)
-selfie-to-sales.html     Solution 02 (original slug)
-brand-videos.html        Solution 03 (original slug)
-swoop-service.html       Solution 04 (original slug)
-pitchreels.html          Solution 05 (original slug)
-our-work.html            Video portfolio / screening room
-services.html            Full service menu
-why-video.html           Stats and ROI case (original slug)
-meet-the-team.html       Team + testimonials (original slug)
-contact.html             Contact (original slug)
-404.html                 Custom not-found page
-assets/css/styles.css    Design system (all tokens in :root)
-assets/js/site.js        Nav, dropdown, reveals, counters, playhead
-```
+- All 11 pages mirrored from hindlightmedia.com on July 1, 2026 (index, talking-head-reels, selfie-to-sales, brand-videos, swoop-service, pitchreels, why-video, meet-the-team, our-work, contact, privacy-policy).
+- Squarespace CSS/JS bundles and images localized under `ss/` (no dependency on the client keeping Squarespace).
+- Internal links rewritten to extensionless relative slugs - identical URLs to the original site, works on GitHub Pages and at domain cutover.
+- Squarespace-hosted videos replaced with self-hosted files from `assets/video/` (the original SS players are hidden via CSS, their markup kept intact so the Squarespace bootstrap JS doesn't crash):
+  - Hero background: "Homepage Loop February 2024" = `hero.mp4` (720p encode of homepage-video-2)
+  - Recent Work: `heart-reel.mp4` (homepage-video-1) + `recent-work-2.mp4` (homepage-video-3)
+  - PitchReels promo, all 5 Swoop samples: matched by duration to the archive
 
-Internal links are extensionless ("swoop-service", not "swoop-service.html") - GitHub Pages resolves them, and they exactly match the client's original Squarespace slugs, so nothing 301s at domain cutover.
+## Known gaps (client action needed)
 
-## Notes for domain cutover (hindlightmedia.com)
+- **SwoopLoop.mov** (20.9s background loop on /swoop-service) could not be recovered - Squarespace signs its video URLs. The section shows its fallback image. Client should re-export from their files.
+- **Two Vimeo embeds are dead on the live site too** (talking-head reel 2 = vimeo 1058453718, Selfie to Sales example = vimeo 1191590390; both 404 on Vimeo). Client should re-export or make them public again.
+- Page meta (canonicals, OG) still points at hindlightmedia.com - correct for a staging clone; revisit at cutover.
 
-Search and replace `https://credwine.github.io/hindlight-media/` with `https://hindlightmedia.com/` across all .html files, sitemap.xml, and robots.txt (canonicals, OG tags, JSON-LD, breadcrumbs).
+## Asset archive
 
-## Asset provenance
-
-All photos, videos, copy, testimonials, team bios, and pricing come from the client's original hindlightmedia.com (Squarespace), archived July 1, 2026. See `assets/img/MANIFEST.md` and `assets/video/MANIFEST.md`.
-
-Gotcha: `assets/img/HindLight_Logo.png` is MISLABELED (a stock desk photo). The real wordmark is `HLM_logo_2020.png`; the site serves `hindlight-logo.webp` derivatives of it.
-
-Optimized derivatives:
-- `assets/video/hero.mp4` - homepage-video-2 (football entrance) re-encoded 720p, muted
-- `assets/img/hero-poster.jpg` - hero poster frame (also the OG image)
-- `assets/img/hindlight-logo.webp` / `hindlight-logo-sm.webp` - from HLM_logo_2020.png
-- `assets/img/book-cover.webp` - from BookCover_GreatAtMakingVideo.png
-- `assets/img/poster-*.jpg` - poster frames for the wide players
+`assets/img/` and `assets/video/` hold the full media archive pulled from the original site (see MANIFEST.md files). Gotcha: `HindLight_Logo.png` is MISLABELED (stock photo); the real wordmark is `HLM_logo_2020.png`.
