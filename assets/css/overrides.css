@@ -284,3 +284,12 @@ html{scroll-behavior:smooth}
    ============================================================ */
 html,body{overflow-x:clip}
 .grecaptcha-badge{display:none !important}
+
+/* Kill Squarespace's image load/scroll fade-in (client still saw the homepage
+   "fading"). The fade lives on the inner <img> via the fluid-image loader, not
+   on the [data-animation-role] wrapper - force all images fully visible and
+   static. (Hero background video keeps its Ken Burns; it is not an <img>.) */
+img,.fluid-image-animation-wrapper,.fluid-image-animation-wrapper img,
+.sqs-image,.sqs-image img,.fluid-image-container,.fluid-image-container img{
+  opacity:1 !important;filter:none !important;transition:none !important;animation:none !important;transform:none !important}
+.fluid-image-animation-wrapper::before,.sqs-image::before{content:none !important;display:none !important}
