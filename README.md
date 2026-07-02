@@ -22,6 +22,12 @@ A full light-theme multi-page redesign also exists on the `redesign-light` branc
 
 **Contact form**: submits via formsubmit.co to hello@hindlightmedia.com. The FIRST submission triggers an activation email to that inbox - the client must click it once before submissions flow. Call/text/email buttons work regardless.
 
+## Batch 2 (2026-07-02)
+
+Responsive images restored (real 300w/750w srcset variants under ss/img/), full Vimeo independence (zero player.vimeo.com references; carousel + brand video self-hosted), complete mobile optimization (SS burger menu verified + defensive fallback, 44px tap targets, overflow fixes, grain/orbs reduced on phones), og:image + twitter cards on every page, descriptive alt text, one h1 per page, CTA after the reviews band.
+
+Note: /our-work portfolio is an Elfsight remote widget (static.elfsight.com) - it renders only while the client's Elfsight account is active. A static fallback grid is a future improvement.
+
 ## Known gaps (client action needed)
 
 - **SwoopLoop.mov** (20.9s background loop on /swoop-service) could not be recovered - Squarespace signs its video URLs. The section shows its fallback image. Client should re-export from their files.
