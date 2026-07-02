@@ -170,3 +170,21 @@ section#selfie-to-sales .sts-description{color:#3d3a36}
      line on phones so it stays inside its top rows. */
   #block-yui_3_17_2_1_1708817868390_48400 h1{font-size:clamp(1.6rem,7vw,2.2rem)}
 }
+
+/* our-work: Elfsight gallery "Load More" - was orange-on-orange, invisible */
+.eapp-vimeo-gallery-load-more-component{
+  background:#1C1410 !important;color:#FFF6EC !important;
+  border:none !important;border-radius:4px !important;
+  padding:16px 44px !important;
+  font-weight:700 !important;text-transform:uppercase !important;
+  letter-spacing:.12em !important;font-size:.95rem !important;
+  box-shadow:0 8px 26px rgba(60,15,0,.35) !important;
+  transition:transform .2s ease,box-shadow .25s ease,background .2s ease !important;
+  cursor:pointer !important;
+}
+.eapp-vimeo-gallery-load-more-component:hover,
+.eapp-vimeo-gallery-load-more-component:focus-visible{
+  transform:translateY(-2px);
+  background:#000 !important;
+  box-shadow:0 14px 38px rgba(60,15,0,.5) !important;
+}
