@@ -16,6 +16,12 @@ A full light-theme multi-page redesign also exists on the `redesign-light` branc
   - Recent Work: `heart-reel.mp4` (homepage-video-1) + `recent-work-2.mp4` (homepage-video-3)
   - PitchReels promo, all 5 Swoop samples: matched by duration to the archive
 
+## Improvement layer (on top of the clone)
+
+`assets/css/overrides.css` + `assets/js/overrides.js` hold every enhancement so the mirrored Squarespace files stay diff-able against the original: larger body text, ember glow motion + film grain, scroll playhead, hero CTA, homepage reviews band, working contact section.
+
+**Contact form**: submits via formsubmit.co to hello@hindlightmedia.com. The FIRST submission triggers an activation email to that inbox - the client must click it once before submissions flow. Call/text/email buttons work regardless.
+
 ## Known gaps (client action needed)
 
 - **SwoopLoop.mov** (20.9s background loop on /swoop-service) could not be recovered - Squarespace signs its video URLs. The section shows its fallback image. Client should re-export from their files.
