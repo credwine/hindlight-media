@@ -89,6 +89,33 @@
   }
 })();
 
+/* Ambient autoplay loops (no control bar): click/tap or keyboard toggles
+   pause so autoplaying content stays pausable (WCAG 2.2.2). */
+(function () {
+  function init() {
+    var vids = document.querySelectorAll('video[autoplay][loop]:not([controls])');
+    for (var i = 0; i < vids.length; i++) {
+      (function (v) {
+        if (v.closest('.local-video-bg')) return; // background videos stay hands-off
+        v.style.cursor = 'pointer';
+        v.setAttribute('tabindex', '0');
+        v.setAttribute('role', 'button');
+        v.setAttribute('aria-label', 'Pause or play video');
+        function toggle() { if (v.paused) { v.play(); } else { v.pause(); } }
+        v.addEventListener('click', toggle);
+        v.addEventListener('keydown', function (e) {
+          if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); toggle(); }
+        });
+      })(vids[i]);
+    }
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+
 // HindLight Media - improvement layer JS (playhead)
 (function () {
   var ph = document.createElement('div');
