@@ -22,6 +22,18 @@ A full light-theme multi-page redesign also exists on the `redesign-light` branc
 
 **Contact form**: submits via formsubmit.co to hello@hindlightmedia.com. The FIRST submission triggers an activation email to that inbox - the client must click it once before submissions flow. Call/text/email buttons work regardless.
 
+## SEO landing pages + premium polish (2026-07-02)
+
+Standalone fast SEO pages (own `assets/css/pages.css`, no Squarespace bundle - great CWV) targeting organic search, wired into the menu via a "Services" nav item (injected by overrides.js) and `sitemap.xml`:
+
+- Hub: `video-services` (links every service + on-site solution + locations)
+- Services: `wedding-videography`, `real-estate-video`, `drone-videography`, `church-video-production`, `business-video-production`
+- Locations: `video-production-rome-ga`, `video-production-cartersville-ga`, `video-production-calhoun-ga`
+
+Each has unique title/meta, Service + FAQPage + BreadcrumbList (+ LocalBusiness on location pages) JSON-LD, and hub-and-spoke internal linking. To add more towns/services, copy `wedding-videography.html`, change content + slug, add to `video-services.html` grid, `sitemap.xml`, and each page's footer/areas list.
+
+Other polish: swoop-service hero rebuilt (clean baseball B-roll `swoop-bg.mp4` + premium overlay, fixed the mobile button collision); scroll-reveal fade-ins removed sitewide (felt slow - content now paints instantly); `overflow-x:clip` kills horizontal scroll from the client's decorative elements at 320-360px; orphaned reCAPTCHA badge hidden. Playwright-verified 0 overflow across 21 pages x desktop/360px(S25 Ultra)/320px.
+
 ## Batch 2 (2026-07-02)
 
 Responsive images restored (real 300w/750w srcset variants under ss/img/), full Vimeo independence (zero player.vimeo.com references; carousel + brand video self-hosted), complete mobile optimization (SS burger menu verified + defensive fallback, 44px tap targets, overflow fixes, grain/orbs reduced on phones), og:image + twitter cards on every page, descriptive alt text, one h1 per page, CTA after the reviews band.
