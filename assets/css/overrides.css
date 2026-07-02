@@ -274,3 +274,13 @@ html{scroll-behavior:smooth}
    ============================================================ */
 [data-animation-role]{opacity:1 !important;transform:none !important;filter:none !important;animation:none !important;transition:none !important}
 .hl-reveal,.hl-reveal.hl-in{opacity:1 !important;transform:none !important}
+
+/* ============================================================
+   NARROW-SCREEN SAFETY (S25 Ultra 360px / thin 320px)
+   Client decorative elements (glows, giant bg words) and the SS marquee
+   extend past the viewport; clip horizontally without a scroll container
+   (overflow-x:clip keeps position:sticky working). Also hide the orphaned
+   Google reCAPTCHA badge left over from the retired Squarespace form.
+   ============================================================ */
+html,body{overflow-x:clip}
+.grecaptcha-badge{display:none !important}

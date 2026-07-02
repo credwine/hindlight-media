@@ -139,6 +139,43 @@
   else init();
 })();
 
+/* Inject a "Services" nav item (-> video-services hub) into both the desktop
+   and mobile Squarespace menus, so the SEO landing pages are reachable from
+   the menu on every page. Idempotent; matches native SS markup. */
+(function () {
+  function init() {
+    // desktop
+    var list = document.querySelector('.header-nav-list');
+    if (list && !list.querySelector('a[href="video-services"]')) {
+      var after = null;
+      list.querySelectorAll('.header-nav-item > a').forEach(function (a) {
+        if (a.getAttribute('href') === 'our-work') after = a.parentElement;
+      });
+      var item = document.createElement('div');
+      item.className = 'header-nav-item header-nav-item--collection';
+      item.innerHTML = '<a href="video-services">Services</a>';
+      if (after && after.nextSibling) list.insertBefore(item, after.nextSibling);
+      else if (after) list.appendChild(item);
+      else list.appendChild(item);
+    }
+    // mobile
+    var mwrap = document.querySelector('.header-menu-nav-wrapper');
+    if (mwrap && !mwrap.querySelector('a[href="video-services"]')) {
+      var mafter = null;
+      mwrap.querySelectorAll('.header-menu-nav-item > a').forEach(function (a) {
+        if (a.getAttribute('href') === 'our-work') mafter = a.parentElement;
+      });
+      var mitem = document.createElement('div');
+      mitem.className = 'container header-menu-nav-item header-menu-nav-item--collection';
+      mitem.innerHTML = '<a href="video-services"><div class="header-menu-nav-item-content">Services</div></a>';
+      if (mafter && mafter.nextSibling) mwrap.insertBefore(mitem, mafter.nextSibling);
+      else if (mafter) mwrap.appendChild(mitem);
+    }
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+})();
+
 // HindLight Media - improvement layer JS (playhead)
 (function () {
   var ph = document.createElement('div');
