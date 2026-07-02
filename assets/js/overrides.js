@@ -116,43 +116,12 @@
   }
 })();
 
-/* Premium + motion layer (v7): scroll reveals on our own sections,
-   magnetic hero buttons, and a hero scroll cue. All reduced-motion safe
-   and scoped so it never fights Squarespace's own reveal system. */
+/* Micro-interaction layer: magnetic hero buttons only. Scroll-reveal
+   fade-ins were removed (they made the site feel slow); content now
+   renders instantly. */
 (function () {
   var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-
   function init() {
-    // 1. Scroll reveals - ONLY our injected components (never SS-managed nodes)
-    var targets = [];
-    document.querySelectorAll('.hl-reviews h2, .hl-reviews .hl-review, .hl-contact h2, .hl-contact .hl-big-phone, .hl-contact .hl-contact-ctas, .hl-contact .hl-form')
-      .forEach(function (el) { targets.push(el); });
-    // stagger review cards
-    var cards = document.querySelectorAll('.hl-reviews .hl-review');
-    for (var c = 0; c < cards.length; c++) cards[c].style.transitionDelay = (c * 90) + 'ms';
-
-    if (reduce || !('IntersectionObserver' in window)) {
-      targets.forEach(function (el) { el.classList.add('hl-reveal', 'hl-in'); });
-    } else {
-      var io = new IntersectionObserver(function (es) {
-        es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('hl-in'); io.unobserve(e.target); } });
-      }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
-      targets.forEach(function (el) { el.classList.add('hl-reveal'); io.observe(el); });
-      // Reveal anything above the fold immediately (no wait).
-      requestAnimationFrame(function () {
-        targets.forEach(function (el) {
-          if (el.getBoundingClientRect().top < innerHeight * 0.9) el.classList.add('hl-in');
-        });
-      });
-      // Hard safety net: content must NEVER stay invisible. Force-reveal every
-      // remaining target after 3s regardless of scroll position (worst case it
-      // simply appears without the entrance animation).
-      setTimeout(function () {
-        targets.forEach(function (el) { el.classList.add('hl-in'); });
-      }, 3000);
-    }
-
-    // 2. Magnetic hero buttons (fine-pointer, motion-ok only)
     if (!reduce && matchMedia('(hover:hover) and (pointer:fine)').matches) {
       document.querySelectorAll('.hl-hero-cta .hl-btn, .hl-hero-cta .hl-btn-ghost').forEach(function (b) {
         b.style.transition = 'transform .18s cubic-bezier(.22,1,.36,1),box-shadow .25s ease';
@@ -165,9 +134,7 @@
         b.addEventListener('mouseleave', function () { b.style.transform = 'translate(0,0)'; });
       });
     }
-
   }
-
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();
 })();
